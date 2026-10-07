@@ -1,0 +1,19 @@
+alias: S11 button RF hub ESP32S3
+description: Obe S11 stikali prek MQTT preklapljata luč v spalnici.
+triggers:
+  - trigger: mqtt
+    topic: tuya_rf_s11/switch1/press
+    payload: PRESS
+    id: stikalo1
+  - trigger: mqtt
+    topic: tuya_rf_s11/switch2/press
+    payload: PRESS
+    id: stikalo2
+conditions: []
+actions:
+  - action: light.toggle
+    data: {}
+    target:
+      entity_id: light.minismartswitch_1
+mode: queued
+max: 10
